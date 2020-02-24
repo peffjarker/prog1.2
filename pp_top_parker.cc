@@ -1,3 +1,9 @@
+/*
+Jeff Parker
+CS4420
+Programming Assignment 1:PP_TOP
+This assignment recreates the program top on Unix systems.
+*/
 #include <bits/stdc++.h>
 #include <cstring>
 #include <dirent.h>
@@ -9,6 +15,9 @@
 #include <unistd.h>
 #include <vector>
 using namespace std;
+
+#define clear() printf("\033[H\033[J")
+#define gotoxy(x, y) printf("\033[%d;%dH", (x), (y))
 
 // global float to store uptime
 float uptime;
@@ -227,7 +236,7 @@ int main(int argc, const char *argv[]) {
     ioctl(STDOUT_FILENO, TIOCGWINSZ, &w);
     cout << "[" << ps.size() << " total no. proccesses][" << running
          << " proccesses running][" << si.totalram << " physical memory]["
-         << si.totalram - si.freeram << " memory used][" << totalCPU
+         << (si.totalram - si.freeram) / 4096 << " memory used][" << totalCPU
          << " total % used]" << endl;
     cout << setw(6) << "PID" << setw(30) << "COMMAND" << setw(6) << "STATE"
          << setw(15) << "%CPU" << setw(15) << "%MEM" << setw(22) << "VSZ"
@@ -245,6 +254,7 @@ int main(int argc, const char *argv[]) {
       cout << endl;
     }
     sleep(1);
-    system("clear");
+    clear();
+    gotoxy(0, 0);
   } while (1);
 }
