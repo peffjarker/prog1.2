@@ -1,9 +1,3 @@
-/*
-Jeff Parker
-CS4420
-Programming Assignment 1:PP_TOP
-This assignment recreates the program top on Unix systems.
-*/
 #include <bits/stdc++.h>
 #include <cstring>
 #include <dirent.h>
@@ -113,6 +107,11 @@ void processLine(string line) {
 
 int main(int argc, const char *argv[]) {
   do {
+    if (argc == 1) {
+      // catches for arguments
+      cout << "Error: no argument set. (-cpu, -mem, -com, -pid)" << endl;
+      return (-1);
+    }
     // reset process_vector, ps and uptime
     process_vector.resize(0);
     ps.resize(0);
@@ -187,7 +186,7 @@ int main(int argc, const char *argv[]) {
     long page_size = sysconf(_SC_PAGE_SIZE);
     long phys_mem_size = phys_pages * page_size;
 
-    for (int i = 0; i < process_vector.size(); ++i) {
+    for (u_int i = 0; i < process_vector.size(); ++i) {
       Output processOutput;
       float process_time;
       float real_time;
@@ -223,7 +222,7 @@ int main(int argc, const char *argv[]) {
     }
     int running = 0;
     float totalCPU = 0;
-    for (int q = 0; q < ps.size(); ++q) {
+    for (u_int q = 0; q < ps.size(); ++q) {
       if (ps[q].state == 'R') {
         running++;
       }
@@ -242,7 +241,7 @@ int main(int argc, const char *argv[]) {
          << setw(15) << "%CPU" << setw(15) << "%MEM" << setw(22) << "VSZ"
          << setw(10) << "RSS" << setw(6) << "CORE";
     cout << endl;
-    for (u_int i = 0; i < w.ws_row - 3; ++i) {
+    for (int i = 0; i < w.ws_row - 3; ++i) {
       cout << setw(6) << ps[i].PID;
       cout << setw(30) << ps[i].command;
       cout << setw(6) << ps[i].state;
