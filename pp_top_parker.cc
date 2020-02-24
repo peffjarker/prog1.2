@@ -1,3 +1,9 @@
+/*
+Jeff Parker
+CS4420
+Programming Assigntment 1:pp_top
+This program recreates the program top on unix file systems
+*/
 #include <bits/stdc++.h>
 #include <cstring>
 #include <dirent.h>
