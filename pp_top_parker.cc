@@ -253,7 +253,7 @@ int main(int argc, const char *argv[]) {
       cout << setw(6) << ps[i].state;
       cout << setw(15) << ps[i].percCPU;
       cout << setw(15) << ps[i].percMem;
-      cout << setw(22) << ps[i].VSZ;
+      cout << setw(15) << ps[i].VSZ;
       cout << setw(10) << ps[i].RSS;
       cout << setw(6) << ps[i].CPU;
       cout << endl;
