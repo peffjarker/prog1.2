@@ -243,7 +243,7 @@ int main(int argc, const char *argv[]) {
          << " proccesses running][" << si.totalram << " physical memory]["
          << (si.totalram - si.freeram) / 4096 << " memory used][" << totalCPU
          << " total % used]" << endl;
-    cout << setw(6) << "PID" << setw(22) << "COMMAND" << setw(6) << "STATE"
+    cout << setw(6) << "PID" << setw(15) << "COMMAND" << setw(6) << "STATE"
          << setw(15) << "%CPU" << setw(15) << "%MEM" << setw(22) << "VSZ"
          << setw(10) << "RSS" << setw(6) << "CORE";
     cout << endl;
