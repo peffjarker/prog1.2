@@ -243,13 +243,13 @@ int main(int argc, const char *argv[]) {
          << " proccesses running][" << si.totalram << " physical memory]["
          << (si.totalram - si.freeram) / 4096 << " memory used][" << totalCPU
          << " total % used]" << endl;
-    cout << setw(6) << "PID" << setw(30) << "COMMAND" << setw(6) << "STATE"
+    cout << setw(6) << "PID" << setw(22) << "COMMAND" << setw(6) << "STATE"
          << setw(15) << "%CPU" << setw(15) << "%MEM" << setw(22) << "VSZ"
          << setw(10) << "RSS" << setw(6) << "CORE";
     cout << endl;
     for (int i = 0; i < w.ws_row - 3; ++i) {
       cout << setw(6) << ps[i].PID;
-      cout << setw(30) << ps[i].command;
+      cout << setw(22) << ps[i].command;
       cout << setw(6) << ps[i].state;
       cout << setw(15) << ps[i].percCPU;
       cout << setw(15) << ps[i].percMem;
